@@ -357,7 +357,7 @@ var HttpComponent = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = ".submit{\r\n  padding: 1px 6px 1px 6px;\r\n  padding-top: 3px;\r\n}\r\n\r\n.add_block input{\r\n  margin-right: 5px;\r\n}\r\n\r\nform{\r\n  padding: 0 30%;\r\n}\r\n\r\n.title{\r\n  padding: 20px 40%;\r\n  font-weight: bold;\r\n  font-size: 20px;\r\n}\r\n\r\n.teable-item{\r\n  padding: 40px 25%;\r\n}\r\n\r\nth,td{\r\n  width: 40px;\r\n  text-align: center;\r\n}\r\n\r\n.content{\r\n  background-color: white;\r\n  margin:auto;\r\n  width: 1000px;\r\n  padding-top: 180px;\r\n}\r\n"
+module.exports = ".submit{\r\n  padding: 1px 6px 1px 6px;\r\n  padding-top: 3px;\r\n}\r\n\r\n.add_block input{\r\n  margin-right: 5px;\r\n}\r\n\r\nform{\r\n  padding: 0 30%;\r\n}\r\n\r\n.title{\r\n  padding: 20px 40%;\r\n  font-weight: bold;\r\n  font-size: 20px;\r\n}\r\n\r\n.teable-item{\r\n  padding: 40px 25%;\r\n}\r\n\r\nth,td{\r\n  width: 40px;\r\n  text-align: center;\r\n}\r\n\r\n.content{\r\n  background-color: white;\r\n  margin:auto;\r\n  width: 1000px;\r\n  padding: 40px 0;\r\n}\r\n"
 
 /***/ }),
 
