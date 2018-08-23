@@ -160,7 +160,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\">Погода</a>\n</header>\n"
+module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\"  target=\"_blank\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\"  target=\"_blank\">Погода</a>\n</header>\n"
 
 /***/ }),
 
@@ -171,7 +171,7 @@ module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <a href=\"/\" class=\"logo\">Домой</a>\n  <a href=\"/weather\">Погода</a>\n</header>\n"
+    module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\"  target=\"_blank\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\"  target=\"_blank\">Погода</a>\n</header>\n"
 
 /***/ }),
 
