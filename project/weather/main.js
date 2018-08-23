@@ -166,12 +166,12 @@ module.exports = "header {\r\n  padding-bottom: 0.7em;\r\n  height: 60px;\r\n  b
 
 /***/ "./src/app/header/header.component.html":
 /*!**********************************************!*\
-  !*** ./src/app/header/header.component.html ***!
-  \**********************************************/
+!*** ./src/app/header/header.component.html ***!
+\**********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-    module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\"  target=\"_blank\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\"  target=\"_blank\">Погода</a>\n</header>\n"
+module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\"  target=\"_blank\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\"  target=\"_blank\">Погода</a>\n</header>\n"
 
 /***/ }),
 
