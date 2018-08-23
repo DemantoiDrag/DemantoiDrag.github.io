@@ -171,7 +171,7 @@ module.exports = "header {\r\n  padding-bottom: 0.7em;\r\n  height: 60px;\r\n  b
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<header>\n  <a href=\"/\" class=\"logo\">Домой</a>\n  <a href=\"/weather\">Погода</a>\n</header>\n"
+    module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\">Погода</a>\n</header>\n"
 
 /***/ }),
 

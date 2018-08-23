@@ -160,7 +160,7 @@ var AppModule = /** @class */ (function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "header {\r\n  padding-bottom: 0.7em;\r\n  height: 60px;\r\n  background-color: #2c2c2c;\r\n  padding: 20px 0;\r\n  width: 100%;\r\n  text-align: center;\r\n  position: fixed;\r\n}\r\n\r\na{\r\n  text-decoration: none;\r\n  transition: all.6s ease;\r\n  cursor: pointer;\r\n  font-size: 30px;\r\n  margin:0 20px;\r\n\r\n}\r\n"
+module.exports = "<header>\n  <a href=\"https://codepen.io/diamondragon2003/full/rZOjpK/\" class=\"logo\">Домой</a>\n  <a href=\"https://codepen.io/diamondragon2003/full/LJpxev/\">Погода</a>\n</header>\n"
 
 /***/ }),
 
