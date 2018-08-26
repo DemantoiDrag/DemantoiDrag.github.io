@@ -1,0 +1,294 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: white;
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    height: 276vh;
+}
+
+.content {
+    padding-left: 18.8%;
+    padding-top: 4.2vh;
+    height: 95.8vh;
+    overflow: hidden;
+    position: relative;
+}
+
+.watches {
+    position: absolute;
+    bottom: 0;
+    right: -20em;
+    width: 40em;
+    z-index: -1;
+}
+
+.logo {
+    width: 23px;
+}
+
+.title {
+    height: 50px;
+    float: left;
+}
+
+.title * {
+    float: left;
+}
+
+._title {
+    cursor: pointer;
+    color: #adabac;
+    margin-right: 33px;
+    font-size: 12px;
+    padding-bottom: 3px;
+}
+
+._title:hover {
+    color: #272727;
+    border-bottom: 2px solid #7c7a7b;
+}
+
+.title .text {
+    margin-top: 20px;
+    margin-left: 481px;
+    position: absolute;
+    width: 400px;
+}
+
+.search_title {
+    color: #7c7a7b;
+    font-size: 13px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #adabac;
+    padding-bottom: 3px;
+    margin-left: 11px;
+    font-weight: 500;
+    cursor: text;
+    background: inherit;
+}
+
+.hr {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+.content_text {
+    float: left;
+    clear: both;
+    margin-top: 130px;
+    width: 400px;
+}
+
+.content_title {
+    font-size: 38px;
+    font-weight: 600;
+    color: #363636;
+    margin-bottom: 50px;
+}
+
+.content_inner {
+    padding-left: 30px;
+    font-size: 13px;
+    color: #989898;
+    line-height: 18px;
+    border-left: solid #989898 2px;
+    margin-bottom: 50px;
+}
+
+a.knopka {
+    font-size: 12px;
+    font-weight: bold;
+    color: #fff;
+    text-decoration: none;
+    user-select: none;
+    background: #E45F5F;
+    padding: .75em 1.4em;
+    outline: none;
+}
+
+a.knopka:hover {
+    background: #e46c6c;
+}
+
+a.knopka:active {
+    background: #c45043;
+    top: 1px;
+}
+
+/* scrollbar */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+    box-shadow: inset 0 0 7px rgb(187, 187, 187);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    box-shadow: inset 0 0 7px #999;
+}
+
+/* 2 */
+
+.top_title {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 35px;
+    color: #363636;
+}
+
+.top_text {
+    font-size: 13px;
+    width: 250px;
+    font-weight: 500;
+    line-height: 23px;
+    color: #514a41;
+}
+
+.top_content{
+    width: 1000px;
+}
+
+.top_block {
+    float: left;
+    margin-right: 65px;
+}
+
+.learn {
+    font-size: 13px;
+    width: 250px;
+    font-weight: 500;
+    line-height: 23px;
+    color: #E45F5F;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    margin-top: 13px;
+}
+
+.learn_hr {
+    width: 25px;
+    float: left;
+    margin-top: 5px;
+    position: absolute;
+    top: 30%;
+    border: none;
+    border-top: solid #E45F5F;
+    border-width: 2px;
+    -webkit-transition: width .5s;
+    transition: width .5s;
+}
+
+.learn_text {
+    float: left;
+    vertical-align: middle;
+    height: 2px;
+    position: absolute;
+    left: 30px;
+    color: #E45F5F;
+    -webkit-transition: left .5s;
+    transition: left .5s;
+    font-weight: bold;
+}
+
+.learn:hover .learn_hr {
+    width: 40px;
+
+}
+
+.learn:hover .learn_text {
+    left: 45px;
+}
+
+.pount{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 43px;
+    color:#C6C7C7;
+    margin-top: -20px;
+}
+
+.img{
+    float: left;
+    width: 360px;
+    margin-top: 70px;
+}
+
+
+.second_text {
+    float: left;
+    clear: both;
+    margin-top: 190px;
+    width: 400px;
+    margin-right: 80px;
+}
+
+.second_title {
+    font-size: 38px;
+    font-weight: 600;
+    color: #363636;
+    margin-bottom: 50px;
+    width: 300px;
+}
+
+.second_inner {
+    padding-left: 30px;
+    font-size: 13px;
+    color: #989898;
+    line-height: 18px;
+    border-left: solid #989898 2px;
+    margin-bottom: 50px;
+}
+
+
+.content_last{
+    padding-left: 55%;
+    padding-top: 4.2vh;
+    height: 71.8vh;
+    background: url(https://diamondragon2003.github.io/Pen/img7/runners.jpg) no-repeat;
+    background-size: cover;
+}
+
+.last_text {
+    float: left;
+    clear: both;
+    margin-top: 150px;
+    width: 400px;
+    margin-right: 80px;
+}
+
+.last_title {
+    font-size: 38px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 50px;
+    width: 300px;
+}
+
+.last_inner {
+    padding-left: 30px;
+    font-size: 13px;
+    color: white;
+    line-height: 18px;
+    border-left: solid white 2px;
+    margin-bottom: 50px;
+}
