@@ -1,5 +1,5 @@
 $(function() {
-    $('.js-nav a, .js-connect').click(function(e) {
+    $('a, html').click(function(e) {
       e.preventDefault();
       $('body, html').animate({
         scrollTop: $($.attr(this, 'href')).offset().top
