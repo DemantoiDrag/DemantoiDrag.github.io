@@ -113,6 +113,7 @@ a.knopka {
     background: #E45F5F;
     padding: .75em 1.4em;
     outline: none;
+    cursor: pointer;
 }
 
 a.knopka:hover {
@@ -295,4 +296,25 @@ a.knopka:active {
 
 .center_content{
     width: 1000px;
+}
+
+.fixed{
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+}
+
+.fixed a{
+    text-decoration: none;
+    color:#95bb0ea2;
+    font-size: 40px;
+    text-shadow: 2px 2px 2px rgb(119, 118, 118);
+}
+
+.fixed a:hover{
+    color:#9cdf18c7;
+}
+
+.center{
+    margin-left: 6px;
 }
