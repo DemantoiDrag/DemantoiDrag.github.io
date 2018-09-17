@@ -1,0 +1,16 @@
+<svg width="580" height="400" xmlns="http://www.w3.org/2000/svg">
+ <g>
+  <title>background</title>
+  <rect fill="#fff" id="canvas_background" height="402" width="582" y="-1" x="-1"/>
+  <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+   <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%"/>
+  </g>
+ </g>
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_2" d="m120.897503,184.955294l86.999991,-86.999991l86.999991,86.999991l-86.999991,86.999991l-86.999991,-86.999991z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#000000"/>
+  <rect id="svg_5" height="175" width="254" y="97.4375" x="207.5" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#000000"/>
+  <path id="svg_6" d="m1,4l0.5,-3l0.5,3l-0.5,3l-0.5,-3z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+  <path id="svg_7" d="m256.262517,147.746113l31.518379,-31.518369l33.481485,33.4812l33.481485,-33.4812l31.518675,31.518369l-33.481494,33.481474l33.481494,33.481474l-31.518675,31.518665l-33.481485,-33.481483l-33.481485,33.481483l-31.518379,-31.518665l33.481211,-33.481474l-33.481211,-33.481474z" stroke-opacity="null" stroke-width="1.5" stroke="#000" fill="#ffffff"/>
+ </g>
+</svg>
