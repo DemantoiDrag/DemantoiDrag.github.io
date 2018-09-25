@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="815.4945584289424" height="815.2527207855285" style=""><rect id="backgroundrect" width="100%" height="100%" x="0" y="0" fill="none" stroke="none"/>
+	<defs>
+		<pattern id="CheckerPattern" patternUnits="userSpaceOnUse" x="0" y="0" width="30" height="30" viewBox="0 0 30 30">
+			<rect fill="#FFF" stroke="none" x="0" y="0" height="15" width="15" id="svg_1"/>
+			<rect fill="#FFF" stroke="none" x="15" y="15" height="15" width="15" id="svg_2"/>
+			<rect fill="#E5E5E5" stroke="none" x="15" y="0" height="15" width="15" id="svg_3"/>
+			<rect fill="#E5E5E5" stroke="none" x="0" y="15" height="15" width="15" id="svg_4"/>
+		</pattern>
+	</defs>
+	<g style="" class="currentLayer">
+		<title>“Transparent” Background Pattern, by Adam Stanislav</title>
+		<rect fill="url(#CheckerPattern)" stroke="none" x="-17.194998739827838" y="-16.226400221812128" width="856.1874085521438" height="841.8304677804898" id="svg_5" class=""/>
+	<g id="svg_6" class=""><svg xmlns="http://www.w3.org/2000/svg" height="682.6666870117188" viewBox="-64 0 512 512" width="682.6666870117188" id="svg_7" x="59.49969220161438" y="47.25604748725891"><path d="m144 0h96v96h-96zm0 0" fill="#b0b4b9" id="svg_8"/><path d="m144 32h96v64h-96zm0 0" fill="#9da3aa" id="svg_9"/><path d="m384 96v240c0 17.679688-14.320312 32-32 32h-320c-17.679688 0-32-14.320312-32-32v-240c0-17.679688 14.320312-32 32-32h320c17.679688 0 32 14.320312 32 32zm0 0" fill="#40a2e7" id="svg_10"/><path d="m384 175.359375v160.640625c0 17.679688-14.320312 32-32 32h-320c-17.679688 0-32-14.320312-32-32v-42.078125l137.761719-150.5625 62.558593 46.878906 80.960938-97.117187zm0 0" fill="#168de2" id="svg_11"/><path d="m180 336-39.199219 176h-96.800781l39.199219-176zm0 0" fill="#b0b4b9" id="svg_12"/><path d="m340 512h-96.800781l-39.199219-176h96.800781zm0 0" fill="#b0b4b9" id="svg_13"/><path d="m83.199219 336h96.800781l-14.238281 64h-96.800781zm0 0" fill="#9da3aa" id="svg_14"/><path d="m315.039062 400h-96.800781l-14.238281-64h96.800781zm0 0" fill="#9da3aa" id="svg_15"/><path d="m80 128h32v32h-32zm0 0" fill="#fff" id="svg_16"/><path d="m345.601562 339.199219v28.800781h-313.601562c-15.839844 0-29.121094-11.679688-31.519531-27.039062l141.28125-154.5625zm0 0" fill="#addb31" id="svg_17"/><path d="m179.839844 214.878906-41.808594 49.25c-29.070312 34.238282-71.726562 53.984375-116.65625 53.984375l-20.894531 22.847657c2.398437 15.359374 15.679687 27.039062 31.519531 27.039062h313.601562v-28.800781zm0 0" fill="#6fbb2e" id="svg_18"/><path d="m352 368h-258.160156l191.902344-230.304688 98.257812 78.625v119.679688c0 17.679688-14.320312 32-32 32zm0 0" fill="#addb31" id="svg_19"/><path d="m352 320h-218.160156l-40 48h258.160156c17.679688 0 32-14.320312 32-32v-48c0 17.679688-14.320312 32-32 32zm0 0" fill="#6fbb2e" id="svg_20"/></svg></g>
+	</g>
+</svg>
