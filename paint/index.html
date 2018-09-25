@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/device.js/0.2.7/device.min.js"></script>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="picker/Lib.js"></script>
+    <link rel="stylesheet" type="text/css" href="picker/style.css">
+    <link rel="shortcut icon" href="https://diamondragon2003.github.io//Pen/icon.ico" type="image/x-icon">
+    <title>Paint</title>
+</head>
+
+<body>
+    <div id="page-preloader" class="preloader">
+        <div class="loader"></div>
+    </div>
+
+    <div id="saveWindow">
+        <form>
+            <div id="exitSave"  onclick="download_img(this);"><img src="https://diamondragon2003.github.io//Pen/exit.svg"></div>
+            <h2>Имя файла:</h2>
+            <input type="text" placeholder="Paint" id="fileSaveName" oninput='this.value = this.value.replace(/[\/:*?"<>|\\]/g,"")' maxlength="50">
+            <br>
+            <h2>Сохранить как:</h2>
+            <input type="radio" name="saveas" id="asPng" style="display: none" checked>
+            <label for="asPng"><img src="https://diamondragon2003.github.io//Pen/png.svg"></label>
+            <input type="radio" name="saveas" id="asJpg" style="display: none">
+            <label for="asJpg"><img src="https://diamondragon2003.github.io//Pen/jpg.svg"></label>
+            <input type="radio" name="saveas" id="asCoords" style="display: none">
+            <label for="asCoords"><img src="https://diamondragon2003.github.io//Pen/svgL.svg"></label>
+            <br><br>
+            <h2>Фон:</h2>
+            <div class="picker" id="primary_block">
+
+                <div id="line">
+                    <div id="arrows">
+                        <div class="left_arrow"></div>
+                        <div class="right_arrow"></div>
+                    </div>
+                </div>
+
+                <div id="block_picker">
+
+                    <img src="https://lh3.googleusercontent.com/-8Dm4nhAOssQ/T_IqwyIFXmI/AAAAAAAAACA/4QKmS7s_otE/s256/bgGradient.png"
+                        class="bk_img">
+                    <div class="circle" id="circle"></div>
+                </div>
+                <img id="out_color" class="out_color">
+                <input type="checkbox" name="optical" id="isOptical" style="display: none">
+                <label for="isOptical"><img src="https://diamondragon2003.github.io//Pen/transparent.svg"><span>Прозрачный</span></label>
+            </div>
+            <script src="picker/picker.js"></script>
+            <script>
+                picker.init();
+    </script>
+
+        <a id="SaveImg" href="" download="Paint.png">Сохранить</a>
+        </form>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <div id="settings">
+        <input type="number" id="radius" value="10" oninput="if (this.value.length > 2) this.value = this.value.slice(0,2); if (this.value.length < 1) this.value = 1"
+            onchange="localStorage.setItem('radius',this.value)">
+        <input type="color" id="color" value="#000000" onchange="localStorage.setItem('color',this.value)" />
+        
+        <img src="https://diamondragon2003.github.io//Pen/pencil.svg" id="brush">
+
+        <img src="https://diamondragon2003.github.io//Pen/clear.svg" id="clear" title="Clear">
+        <img src="https://diamondragon2003.github.io//Pen/img.svg" id="img" title="Load img">
+        <input id="file-input" type="file" name="name" style="display: none;" accept=".jpg, .jpeg, .png" />
+        <a id="download" download="Paint.png" onclick="download_img(this);">
+            <img src="https://diamondragon2003.github.io//Pen/download.svg" id="Dimg" title="Download img">
+        </a>
+
+        <input id="file-limg" type="file" name="name" style="display: none;" accept=".pngc" />
+        <img src="https://diamondragon2003.github.io//Pen/load.svg" id="loadimg" title="Load img">
+    </div>
+</body>
+
+</html>
+
+<script src="script.js"></script>
