@@ -59,6 +59,8 @@ img{
     z-index: 2;
     text-align: center;
     border-top:1px solid grey;
+    bottom: 0;
+    position: absolute;
 }
 
 #radius{
@@ -250,4 +252,14 @@ input[type="checkbox"]:checked + label img{
 
 #exitSave img:hover{
     transform: scale(1.1);  
+}
+
+#pageCanv{
+    overflow: scroll;
+    width:100vw;
+    height: calc(100vh - 50px);
+}
+
+#pageCanv::-webkit-scrollbar{
+    display: none;
 }

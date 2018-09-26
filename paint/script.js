@@ -66,7 +66,7 @@ var srcCanvas;
 var saveImg = document.getElementById('out_color');
 var SaveImgBut = document.getElementById('SaveImg');
 
-function download_img(el) {
+function download_img() {
     if (saveWindow.style.display == 'block') {
         saveWindow.style.display = 'none';
         isPainting = true;
@@ -79,57 +79,35 @@ function download_img(el) {
 };
 var isOptical = document.getElementById('isOptical');
 var fileSaveName = document.getElementById('fileSaveName');
+
 SaveImgBut.onclick = function () {
     if (fileSaveName.value == '') {
         fileSaveName.value = "Paint"
     }
 
-    if (document.getElementById('asCoords').checked) {
-        if (coords.length != 0) {
-            filename = fileSaveName.value + ".pngc";
-            type = "text/plain";
-            data = JSON.stringify(coords);
-            var file = new Blob([data], {
-                type: type
-            });
-            if (window.navigator.msSaveOrOpenBlob) // IE10+
-                window.navigator.msSaveOrOpenBlob(file, filename);
-            else { // Others
-                var a = document.createElement("a"),
-                    url = URL.createObjectURL(file);
-                a.href = url;
-                a.download = filename;
-                document.body.appendChild(a);
-                a.click();
-                setTimeout(function () {
-                    document.body.removeChild(a);
-                    window.URL.revokeObjectURL(url);
-                }, 0);
-            }
-        }
-    } else {
-        srcCanvas = canvas;
-        destinationCanvas = document.createElement("canvas");
-        destinationCanvas.width = srcCanvas.width;
-        destinationCanvas.height = srcCanvas.height;
 
-        destCtx = destinationCanvas.getContext('2d');
-        if (!isOptical.checked) {
-            destCtx.fillStyle = resImg;
-            destCtx.fillRect(0, 0, srcCanvas.width, srcCanvas.height);
-        }
-        destCtx.drawImage(srcCanvas, 0, 0);
-        if (document.getElementById('asJpg').checked) {
-            SaveImgBut.download = fileSaveName.value + ".jpg";
-            SaveImgBut.href = destinationCanvas.toDataURL("image/jpg");
-        } else {
-            SaveImgBut.download = fileSaveName.value + ".png";
-            SaveImgBut.href = destinationCanvas.toDataURL("image/png");
-        }
+    srcCanvas = canvas;
+    destinationCanvas = document.createElement("canvas");
+    destinationCanvas.width = srcCanvas.width;
+    destinationCanvas.height = srcCanvas.height;
+
+    destCtx = destinationCanvas.getContext('2d');
+    if (!isOptical.checked) {
+        destCtx.fillStyle = resImg;
+        destCtx.fillRect(0, 0, srcCanvas.width, srcCanvas.height);
     }
-
-
+    destCtx.drawImage(srcCanvas, 0, 0);
+    if (document.getElementById('asJpg').checked) {
+        SaveImgBut.download = fileSaveName.value + ".jpg";
+        SaveImgBut.href = destinationCanvas.toDataURL("image/jpg");
+    } else {
+        SaveImgBut.download = fileSaveName.value + ".png";
+        SaveImgBut.href = destinationCanvas.toDataURL("image/png");
+    }
 }
+
+
+
 
 
 
@@ -140,56 +118,35 @@ loadimg.onclick = function () {
 
     document.getElementById('file-limg').addEventListener('change', readFile, false);
 
-    function readFile(evt) {
-        var files = evt.target.files;
-        var file = files[0];
-        var reader = new FileReader();
-        reader.onload = function (event) {
-            scords = JSON.parse(event.target.result.toString());
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight - 50;
-            ctx.beginPath();
-            coords = JSON.parse(JSON.stringify(scords));
-            console.log(JSON.parse(JSON.stringify(scords)))
-            while (true) {
-                if (!scords.length) {
-                    ctx.beginPath();
-                    isPainting = true;
-                    color.disabled = !isPainting;
-                    break;
-                }
-                var crd = scords.shift(),
-                    e = {
-                        clientX: crd["0"],
-                        clientY: crd["1"],
-                        radius: crd["2"],
-                        color: crd["3"]
-                    };
-                ctx.globalCompositeOperation = crd["4"]
-                ctx.fillStyle = e.color;
-                ctx.strokeStyle = e.color;
-                ctx.lineWidth = e.radius * 2;
-
-                ctx.lineTo(e.clientX, e.clientY);
-                ctx.stroke();
-
-                ctx.beginPath();
-                ctx.arc(e.clientX, e.clientY, e.radius, 0, Math.PI * 2);
-                ctx.fill();
-
-                ctx.beginPath();
-                ctx.moveTo(e.clientX, e.clientY);
-            }
+    function readFile() {
+        if (this.files && this.files[0]) {
+            var FR = new FileReader();
+            FR.onload = function (e) {
+                var img = new Image();
+                img.addEventListener("load", function () {
+                    if (window.innerWidth <= this.width) {
+                        canvas.style.marginLeft = '0px';
+                    } else {
+                        canvas.style.marginLeft = ((window.innerWidth - this.width) / 2) + 'px';
+                    }
+                    if (window.innerHeight - 50 <= this.height) {
+                        canvas.style.marginTop = '0px';
+                    } else {
+                        canvas.style.marginTop = ((window.innerHeight - 50 - this.height) / 2) + 'px';
+                    }
+                    canvas.width = this.width;
+                    canvas.height = this.height;
+                    ctx.drawImage(img, 0, 0);
+                });
+                img.src = e.target.result;
+            };
+            FR.readAsDataURL(this.files[0]);
         }
-        reader.readAsText(file)
     };
 }
 
-var scords;
-window.onresize = function () {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight - 50;
-};
+var scords,
+    isPipe = false;
 
 if (device.mobile()) {
     canvas.addEventListener("touchstart", touchstart);
@@ -197,40 +154,50 @@ if (device.mobile()) {
     canvas.addEventListener("touchmove", moveHand);
 
     function touchstart(e) {
-        var exp = {
-            clientX: e.changedTouches[0].pageX,
-            clientY: e.changedTouches[0].pageY
-        };
-        paint(exp);
-        mouseIsDown = true;
+        if (!isPipe) {
+            var exp = {
+                offsetX: e.touches[0].pageX - e.touches[0].target.offsetLeft,
+                offsetY: e.touches[0].pageY - e.touches[0].target.offsetTop
+            };
+            paint(exp);
+            mouseIsDown = true;
+        }
     }
 
     function handleEnd() {
-        ctx.beginPath();
-        mouseIsDown = false;
-        coords.push("mouseup");
+        if (!isPipe) {
+            ctx.beginPath();
+            mouseIsDown = false;
+            coords.push("mouseup");
+        }
     }
 
     function moveHand(e) {
-        var exp = {
-            clientX: e.changedTouches[0].pageX,
-            clientY: e.changedTouches[0].pageY
-        };
-        if (mouseIsDown) paint(exp);
+        if (!isPipe) {
+            var exp = {
+                offsetX: e.touches[0].pageX - e.touches[0].target.offsetLeft,
+                offsetY: e.touches[0].pageY - e.touches[0].target.offsetTop
+            };
+            if (mouseIsDown) paint(exp);
+        }
     }
 } else {
     canvas.onmousedown = function (e) {
-        paint(e);
-        mouseIsDown = true;
+        if (!isPipe) {
+            paint(e);
+            mouseIsDown = true;
+        }
     };
     canvas.onmouseup = function () {
-        ctx.beginPath();
-        mouseIsDown = false;
-        coords.push("mouseup");
+        if (!isPipe) {
+            ctx.beginPath();
+            mouseIsDown = false;
+            coords.push("mouseup");
+        }
     };
 
     canvas.onmousemove = function (e) {
-        if (mouseIsDown) paint(e);
+        if (mouseIsDown && !isPipe) paint(e);
     };
 }
 ctx.lineWidth = radius.value * 2;
@@ -248,11 +215,18 @@ brush.onclick = function () {
             canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/pencil.png) 0 25, auto";
             brush.src = "https://diamondragon2003.github.io//Pen/pencil.svg";
             brush_Pen = 'pencil';
+        }else if (brush_Pen == 'pipe') {
+            canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/pipette.png) 0 25, auto";
+            brush.src = "https://diamondragon2003.github.io//Pen/pipette.svg";
+            brush_Pen = 'pipe';
         }
     }
 }
 
 function paint(e) {
+    var x = e.offsetX == undefined ? e.layerX : e.offsetX;
+    var y = e.offsetY == undefined ? e.layerY : e.offsetY;
+
     if (isPainting) {
         if (brush_Pen == 'eraser') {
             ctx.globalCompositeOperation = "destination-out";
@@ -262,16 +236,16 @@ function paint(e) {
 
         ctx.fillStyle = localStorage.getItem('color');
         ctx.strokeStyle = localStorage.getItem('color');
-        coords.push([e.clientX, e.clientY, radius.value, localStorage.getItem('color'), ctx.globalCompositeOperation]);
+        coords.push([x, y, radius.value, localStorage.getItem('color'), ctx.globalCompositeOperation]);
         ctx.lineWidth = radius.value * 2;
-        ctx.lineTo(e.clientX, e.clientY);
+        ctx.lineTo(x, y);
         ctx.stroke();
 
         ctx.beginPath();
-        ctx.arc(e.clientX, e.clientY, radius.value, 0, Math.PI * 2);
+        ctx.arc(x, y, radius.value, 0, Math.PI * 2);
         ctx.fill();
 
         ctx.beginPath();
-        ctx.moveTo(e.clientX, e.clientY);
+        ctx.moveTo(x, y);
     }
 }
