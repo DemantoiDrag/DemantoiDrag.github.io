@@ -188,18 +188,42 @@ if (device.mobile()) {
             mouseIsDown = true;
         }
     };
-    canvas.onmouseup = function () {
+    canvas.onmouseup = function (e) {
         if (!isPipe) {
             ctx.beginPath();
             mouseIsDown = false;
             coords.push("mouseup");
+        }else{
+        var x = e.offsetX == undefined ? e.layerX : e.offsetX;
+        var y = e.offsetY == undefined ? e.layerY : e.offsetY;
+ 
+        var imageData = ctx.getImageData(x, y, 1, 1);
+        var pixel = imageData.data;
+        var dColor = rgbToHex(pixel[0], pixel[1], pixel[2]);
+        color.value = dColor;
+        localStorage.setItem('color',dColor);
         }
     };
 
     canvas.onmousemove = function (e) {
-        if (mouseIsDown && !isPipe) paint(e);
+        if (!isPipe) {
+            if (mouseIsDown) paint(e);
+        } else {
+        }
     };
 }
+
+function componentToHex(c) {
+    var hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+}
+
+function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+}
+
+
+
 ctx.lineWidth = radius.value * 2;
 canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/pencil.png) 0 25, auto";
 
@@ -211,14 +235,17 @@ brush.onclick = function () {
             canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/eraser.png) 0 16, auto";
             brush.src = "https://diamondragon2003.github.io//Pen/eraser.svg";
             brush_Pen = 'eraser';
+            isPipe = false;
         } else if (brush_Pen == 'eraser') {
-            canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/pencil.png) 0 25, auto";
-            brush.src = "https://diamondragon2003.github.io//Pen/pencil.svg";
-            brush_Pen = 'pencil';
-        }else if (brush_Pen == 'pipe') {
             canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/pipette.png) 0 25, auto";
             brush.src = "https://diamondragon2003.github.io//Pen/pipette.svg";
             brush_Pen = 'pipe';
+            isPipe = true;
+        } else if (brush_Pen == 'pipe') {
+            canvas.style.cursor = "url(https://diamondragon2003.github.io/Pen/pencil.png) 0 25, auto";
+            brush.src = "https://diamondragon2003.github.io//Pen/pencil.svg";
+            brush_Pen = 'pencil';
+            isPipe = false;
         }
     }
 }
