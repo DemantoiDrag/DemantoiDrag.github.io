@@ -164,11 +164,22 @@ if (device.mobile()) {
         }
     }
 
-    function handleEnd() {
+    function handleEnd(e) {
         if (!isPipe) {
             ctx.beginPath();
             mouseIsDown = false;
             coords.push("mouseup");
+        }else{
+            offsetX= e.changedTouches[0].pageX - e.changedTouches[0].target.offsetLeft;
+            offsetY= e.changedTouches[0].pageY - e.changedTouches[0].target.offsetTop;
+
+            x = offsetX == undefined ? e.layerX : offsetX;
+            y = offsetY == undefined ? e.layerY : offsetY;
+            var imageData = ctx.getImageData(x, y, 1, 1);
+            var pixel = imageData.data;
+            var dColor = rgbToHex(pixel[0], pixel[1], pixel[2]);
+            color.value = dColor;
+            localStorage.setItem('color',dColor);
         }
     }
 
@@ -194,8 +205,8 @@ if (device.mobile()) {
             mouseIsDown = false;
             coords.push("mouseup");
         }else{
-        var x = e.offsetX == undefined ? e.layerX : e.offsetX;
-        var y = e.offsetY == undefined ? e.layerY : e.offsetY;
+        x = e.offsetX == undefined ? e.layerX : e.offsetX;
+        y = e.offsetY == undefined ? e.layerY : e.offsetY;
  
         var imageData = ctx.getImageData(x, y, 1, 1);
         var pixel = imageData.data;
