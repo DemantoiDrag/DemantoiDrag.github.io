@@ -1,0 +1,28 @@
+{
+  "url": "http://plwh/",
+  "server": {
+    "port": 80,
+    "host": "127.0.0.1"
+  },
+  "database": {
+    "client": "mysql",
+    "connection": {
+      "host": "localhost",
+      "user": "root",
+      "password": "plwhpassroot02t3a",
+      "database": "db_plwh"
+    }
+  },
+  "mail": {
+    "transport": "Direct"
+  },
+  "logging": {
+    "transports": [
+      "file",
+      "stdout"
+    ]
+  },
+  "paths": {
+    "contentPath": "home/plwh/server/ghost/content"
+  }
+}
